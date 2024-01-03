@@ -12,9 +12,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os 
-import django_heroku
-import dj_database_url
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,7 +25,7 @@ TEMPLATES_DIRS= os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = 'django-insecure-_ja_2rwbiw)=j5uq8of*sk%ui41vu*%okfmy+hf0v5^)%kx(8f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG =   True 
 
 ALLOWED_HOSTS = []
 
@@ -89,17 +86,10 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 # }
 DATABASES = {
     'default': {
-        'ENGINE':'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ijsuoivzfnvydq',
-        'USER': 'btbxeiustdmlsv',
-        'PASSWORD': '4e264d0f7e713a289d221b980782bb6d1b673a3e7ff5a4c86447ec2e79c3f993',
-        'HOST': 'ec2-35-171-57-132.compute-1.amazonaws.com',
-        'PORT': 5432,
-        
-
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
-}
-
+} 
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -139,6 +129,3 @@ STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-django_heroku.settings(locals())
